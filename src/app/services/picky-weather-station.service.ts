@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 import { City } from '../interfaces/city';
+import { Coordinate } from '../interfaces/coordinate';
 import { GeolocationService } from './geolocation.service';
 
 @Injectable({
@@ -13,8 +14,8 @@ export class PickyWeatherStationService {
     return this._geolocation
       .getCoordinates(city)
       .pipe(
-        map((coordinates: any) =>
-          Math.round((coordinates.longitude + coordinates.latitude) / 2)
+        map((coordinate: Coordinate) =>
+          Math.round((coordinate.longitude + coordinate.latitude) / 2)
         )
       );
   }

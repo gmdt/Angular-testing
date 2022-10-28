@@ -8,9 +8,13 @@ import { PickyWeatherStationService } from './picky-weather-station.service';
 describe('PickyWeatherStationService', () => {
   let service: PickyWeatherStationService;
   let serviceGeo: GeolocationService;
+  const coordinate = {
+    latitude: 45.764043,
+    longitude: 4.835659,
+  };
 
   let temperature: number;
-  let city: City = { name: 'Lyon' };
+  let city: City = { name: 'Lyon', coordinate };
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
